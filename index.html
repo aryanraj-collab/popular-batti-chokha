@@ -409,6 +409,18 @@
         </div>
     </section>
 
+    <section class="py-12 md:py-16 bg-brand-maroon text-brand-cream relative">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-2xl md:text-3xl text-center text-brand-saffron mb-8">
+                हमें यहाँ खोजें (Find Us Here)
+            </h2>
+            <div class="w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-gold relative z-10">
+                <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.843653777647!2d82.98776031501177!3d25.31357698384217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2e26c6020739%3A0x673479634591d3e2!2sPopular%20Baati%20Chokha!5e0!3m2!1sen!2sin!4v1625633642123!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+        <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');"></div>
+    </section>
+
     <footer class="bg-brand-maroon dark:bg-black text-brand-cream py-8 md:py-10 border-t-8 border-brand-gold">
         <div class="container mx-auto px-4 text-center">
             <div class="mb-6">
@@ -459,7 +471,7 @@
             <div class="p-6 dark:text-gray-200">
                 <div id="admin-login">
                     <label class="block text-sm font-bold mb-2 text-brand-maroon dark:text-brand-saffron">पासवर्ड दर्ज करें (Enter Password):</label>
-                    <input type="password" id="admin-pass" placeholder="eg. admin123" class="w-full border-2 dark:border-gray-700 dark:bg-gray-800 p-3 rounded-lg mb-4 focus:border-brand-saffron outline-none transition">
+                    <input type="password" id="admin-pass" placeholder="eg. popular@123" class="w-full border-2 dark:border-gray-700 dark:bg-gray-800 p-3 rounded-lg mb-4 focus:border-brand-saffron outline-none transition">
                     <button onclick="loginAdmin()" class="w-full bg-brand-saffron text-white py-3 rounded-lg font-bold hover:bg-brand-maroon transition shadow-md active:scale-95">लॉगिन (Login)</button>
                 </div>
                 <div id="admin-dashboard" class="hidden">
@@ -569,12 +581,10 @@
             if (isClosed) {
                 sidebar.classList.remove('translate-x-full');
                 overlay.classList.remove('hidden');
-                // Prevent background scrolling when cart is open
                 document.body.style.overflow = 'hidden';
             } else {
                 sidebar.classList.add('translate-x-full');
                 overlay.classList.add('hidden');
-                // Re-enable background scrolling
                 document.body.style.overflow = 'auto';
             }
         }
@@ -674,8 +684,9 @@
         }
 
         function loginAdmin() {
+            // Updated Password Check
             const pass = document.getElementById('admin-pass').value;
-            if (pass === 'admin123') {
+            if (pass === 'popular@123') { // CHANGED PASSWORD HERE
                 document.getElementById('admin-login').classList.add('hidden');
                 document.getElementById('admin-dashboard').classList.remove('hidden');
                 renderAdminInputs();
