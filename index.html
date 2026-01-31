@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>पॉपुलर बाटी चोखा | Popular Baati Chokha - Varanasi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Yatra+One&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            saffron: '#ff9933', 
+                            maroon: '#800000',  
+                            cream: '#fffdd0',   
+                            dark: '#2d2d2d',    
+                            gold: '#d4af37'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['"Yatra One"', '"Rozha One"', 'serif'],
+                        body: ['"Poppins"', 'sans-serif']
+                    },
+                    animation: {
+                        'spin-slow': 'spin 10s linear infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles for the Om animation halo */
+        .om-halo {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 120%; height: 120%;
+            transform: translate(-50%, -50%);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23ff9933'%3E%3Ctext x='50' y='50' font-size='80' text-anchor='middle' dominant-baseline='central'%3Eॐ%3C/text%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.2;
+            z-index: -1;
+            animation: spin 15s linear infinite;
+        }
+        .dark .om-halo { opacity: 0.4; }
+        
+        /* Archway frame for the photo */
+        .photo-frame {
+            border: 8px solid #d4af37;
+            border-radius: 100px 100px 0 0;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            background-color: #fff; /* Ensures white bg if image fails */
+        }
+
+        /* --- Village Home Background for Baba Section --- */
+        .village-home-bg {
+            background-color: #EFEBE9; 
+            background-image: url("https://www.transparenttextures.com/patterns/wall-4-light.png");
+            border: 10px solid #8d6e63;
+            box-shadow: inset 0 0 50px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            padding: 40px 20px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* --- Cultural Highlights (Diversity Section) --- */
+        .culture-section {
+            background-color: #5D4037; 
+            background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
+            color: #FFF8E1;
+            padding: 50px 20px;
+            text-align: center;
+            border-top: 5px solid #FFD700;
+            border-bottom: 5px solid #FFD700;
+        }
+
+        /* We moved the Grid layout to Tailwind classes in HTML for better mobile control */
+        .culture-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #FFD700;
+            border-radius: 15px;
+            padding: 20px;
+            /* width is handled by grid now */
+            transition: transform 0.3s;
+        }
+
+        .culture-card:hover {
+            transform: translateY(-5px); /* Reduced movement for mobile smoothness */
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .culture-icon {
+            font-size: 40px; /* Slightly smaller for mobile */
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        @media (min-width: 768px) {
+            .culture-icon { font-size: 50px; }
+        }
+
+        .culture-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #FFD700;
+            font-family: 'Rozha One', serif;
+        }
+
+        .culture-desc {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+        
+        /* Custom Scrollbar */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+    </style>
+</head>
+<body class="font-body bg-brand-cream dark:bg-brand-dark text-gray-800 dark:text-brand-cream transition-colors duration-300">
+
+    <nav class="sticky top-0 z-50 bg-brand-maroon dark:bg-black shadow-lg text-white py-2 md:py-3 transition-all duration-300">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 md:gap-3 group">
+                <i class="fa-solid fa-fire-burner text-brand-saffron text-3xl md:text-4xl group-hover:rotate-12 transition-transform"></i>
+                <div class="flex flex-col">
+                    <h1 class="font-heading text-2xl md:text-5xl tracking-wider leading-none">पॉपुलर बाटी चोखा</h1>
+                    <div class="flex items-center gap-2 mt-0.5 md:mt-1">
+                        <span class="font-body text-brand-saffron text-[10px] md:text-sm tracking-widest uppercase">Popular Baati Chokha</span>
+                        <span class="bg-brand-gold text-brand-maroon text-[9px] md:text-[10px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">EST. 2002</span>
+                    </div>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-3 md:gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-white/10 transition active:scale-90">
+                    <i class="fa-solid fa-moon text-lg md:text-xl dark:hidden"></i>
+                    <i class="fa-solid fa-sun text-lg md:text-xl hidden dark:block text-brand-saffron"></i>
+                </button>
+                <button onclick="toggleCart()" class="relative p-2 rounded-full hover:bg-white/10 transition active:scale-90">
+                    <i class="fa-solid fa-cart-shopping text-xl md:text-2xl"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-brand-saffron text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full border-2 border-brand-maroon shadow-sm">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative py-10 md:py-16 overflow-hidden">
+        <div class="container mx-auto px-4 text-center relative z-10 village-home-bg mx-4 md:mx-auto max-w-[95%] md:max-w-container">
+            <h2 class="font-heading text-2xl md:text-4xl text-brand-maroon mb-6 md:mb-8 animate-fade-in-up leading-snug">
+                "अतिथि देवो भव:।<br class="md:hidden"> भोजन ही प्रसाद है।"
+            </h2>
+            
+            <div class="relative w-48 h-64 md:w-64 md:h-80 mx-auto mb-6 md:mb-8">
+                <div class="om-halo"></div>
+                <div class="photo-frame h-full w-full bg-white relative z-10">
+                    <img src="image_1.jpg" alt="Baba Ji" class="w-full h-full object-cover">
+                </div>
+            </div>
+
+            <p class="text-base md:text-xl font-heading text-gray-700 max-w-2xl mx-auto px-2">
+                शुद्ध देसी घी से निर्मित, बनारस का पारंपरिक स्वाद।
+                <br>
+                <span class="text-sm md:text-lg opacity-80">(Pure Desi Ghee Preparation, Traditional Taste of Banaras)</span>
+            </p>
+        </div>
+        <div class="absolute inset-0 opacity-10 dark:opacity-5 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/gplay.png');"></div>
+    </header>
+
+    <div class="culture-section">
+        <h2 class="section-title text-2xl md:text-3xl mb-8" style="color: #FFF8E1; text-decoration-color: #FFD700;">
+            अनुभव करें असली गाँव <br>
+            <span class="text-lg md:text-xl opacity-80">(Experience Village Roots)</span>
+        </h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto px-4">
+            <div class="culture-card">
+                <span class="culture-icon">🔥</span>
+                <div class="culture-title">कंडे की आंच</div>
+                <div class="culture-desc">Slow-roasted on traditional cow dung cakes for that smoky, authentic flavor.</div>
+            </div>
+            <div class="culture-card">
+                <span class="culture-icon">🌿</span>
+                <div class="culture-title">पत्तल और कुल्हड़</div>
+                <div class="culture-desc">Served fresh on eco-friendly leaf plates and clay cups (kulhad).</div>
+            </div>
+            <div class="culture-card">
+                <span class="culture-icon">🥛</span>
+                <div class="culture-title">शुद्ध देसी घी</div>
+                <div class="culture-desc">Rich, homemade Desi Ghee drenched over hot Batti and Chokha.</div>
+            </div>
+            <div class="culture-card">
+                <span class="culture-icon">🪔</span>
+                <div class="culture-title">सुकून भरा माहौल</div>
+                <div class="culture-desc">Relax on traditional 'Charpai' (cots) under the open sky.</div>
+            </div>
+        </div>
+    </div>
+
+    <section id="order-menu" class="py-10 md:py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-8 md:mb-12">
+                 <h2 class="font-heading text-3xl md:text-4xl text-brand-maroon dark:text-brand-saffron mb-2">
+                    हमारा मेनू (Our Menu)
+                </h2>
+                <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4">नीचे दिए गए मेनू से चुनें और व्हाट्सएप पर ऑर्डर करें।</p>
+                <div class="w-24 h-1 bg-brand-saffron mx-auto rounded"></div>
+            </div>
+
+            <h3 class="font-heading text-xl md:text-2xl text-brand-dark dark:text-brand-cream mb-6 border-l-4 border-brand-saffron pl-4 flex items-center gap-2">
+                <i class="fa-solid fa-bowl-food text-brand-saffron"></i> बाटी चोखा और चावल
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12" id="menu-regular"></div>
+
+            <h3 class="font-heading text-xl md:text-2xl text-brand-dark dark:text-brand-cream mb-6 border-l-4 border-brand-saffron pl-4 flex items-center gap-2">
+                <i class="fa-solid fa-bread-slice text-brand-saffron"></i> पराठा और पेय
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12" id="menu-sides"></div>
+
+            <h3 class="font-heading text-xl md:text-2xl text-brand-dark dark:text-brand-cream mb-6 border-l-4 border-brand-saffron pl-4 bg-brand-saffron/10 p-3 rounded flex items-center gap-2">
+                <i class="fa-solid fa-utensils text-brand-saffron"></i> स्पेशल कॉम्बो थाली
+            </h3>
+             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="menu-combos"></div>
+
+        </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-brand-maroon text-brand-cream relative overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10">
+             <h2 class="font-heading text-2xl md:text-3xl text-center mb-8 animate-fade-in-up">
+                बाटी चोखा का इतिहास (History)
+            </h2>
+            <div class="max-w-3xl mx-auto text-base md:text-lg leading-relaxed space-y-6 opacity-90 px-2">
+                <p class="animate-fade-in-up font-bold text-center mb-4 text-brand-gold text-lg md:text-xl border-2 border-brand-gold inline-block px-4 py-2 rounded-lg mx-auto w-full md:w-auto">
+                    <i class="fa-solid fa-clock-rotate-left mr-2"></i> 2002 से आपकी सेवा में
+                </p>
+                <p class="animate-fade-in-up" style="animation-delay: 0.2s">
+                    <i class="fa-solid fa-scroll text-brand-saffron mr-2"></i>
+                    'पॉपुलर बाटी चोखा' की शुरुआत 2002 में हुई थी। पिछले 2 दशक से हम बनारस के लोगों और यात्रियों को शुद्ध और पारंपरिक स्वाद परोस रहे हैं।
+                </p>
+                <p class="animate-fade-in-up" style="animation-delay: 0.4s">
+                    <i class="fa-solid fa-fire mr-2 text-brand-saffron"></i>
+                    पारंपरिक रूप से इसे गाय के गोबर के उपलों (गोइठा) की धीमी आंच पर सेंका जाता है, जो इसे इसकी विशिष्ट सोंधी खुशबू देता है।
+                </p>
+            </div>
+            <div class="text-center mt-8">
+                <i class="fa-solid fa-wheat-awn text-5xl md:text-6xl text-brand-saffron opacity-30 animate-spin-slow"></i>
+            </div>
+        </div>
+         <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');"></div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-brand-cream dark:bg-brand-dark border-b-4 border-brand-maroon">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-2xl md:text-3xl text-center text-brand-maroon dark:text-brand-saffron mb-8 md:mb-12">
+                स्वाद का राज: बनने की विधि <br> <span class="text-base md:text-lg opacity-80">(The Secret Recipe)</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-t-8 border-brand-saffron hover:-translate-y-1 md:hover:-translate-y-2 transition duration-300">
+                    <div class="w-14 h-14 md:w-16 md:h-16 bg-brand-saffron/20 rounded-full flex items-center justify-center mb-4 mx-auto text-brand-maroon text-2xl">
+                        <i class="fa-solid fa-cookie-bite"></i>
+                    </div>
+                    <h3 class="font-heading text-xl md:text-2xl text-center text-brand-maroon dark:text-brand-saffron mb-4">लिट्टी (Litti)</h3>
+                    <div class="space-y-3 text-center">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">सत्तू में 15 प्रकार के मसाले और अचार मिलाकर भरावन तैयार किया जाता है। गोइठा की धीमी आंच पर सेंका जाता है।</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-t-8 border-brand-maroon hover:-translate-y-1 md:hover:-translate-y-2 transition duration-300">
+                    <div class="w-14 h-14 md:w-16 md:h-16 bg-brand-maroon/20 rounded-full flex items-center justify-center mb-4 mx-auto text-brand-maroon text-2xl">
+                        <i class="fa-solid fa-bowl-rice"></i>
+                    </div>
+                    <h3 class="font-heading text-xl md:text-2xl text-center text-brand-maroon dark:text-brand-saffron mb-4">चोखा (Chokha)</h3>
+                    <div class="space-y-3 text-center">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">ताजे बैंगन, आलू और टमाटर को आग पर भूनकर, सरसों तेल और मसालों के साथ हाथ से मसला जाता है।</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-t-8 border-brand-saffron hover:-translate-y-1 md:hover:-translate-y-2 transition duration-300">
+                    <div class="w-14 h-14 md:w-16 md:h-16 bg-brand-saffron/20 rounded-full flex items-center justify-center mb-4 mx-auto text-brand-maroon text-2xl">
+                        <i class="fa-solid fa-spoon"></i>
+                    </div>
+                    <h3 class="font-heading text-xl md:text-2xl text-center text-brand-maroon dark:text-brand-saffron mb-4">दाल (Dal)</h3>
+                    <div class="space-y-3 text-center">
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">अरहर की दाल को धीमी आंच पर पकाकर देसी घी, जीरा और हींग का खुशबूदार 'देसी तड़का' लगाया जाता है।</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="py-12 md:py-16 bg-[#FFF8E1] dark:bg-[#1a1a1a] border-t-4 border-brand-gold">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <span class="text-brand-saffron font-bold tracking-widest uppercase text-xs md:text-sm">Knowledge Center</span>
+                <h2 class="font-heading text-2xl md:text-4xl text-brand-maroon dark:text-brand-saffron mt-2">
+                    बाटी चोखा की कहानियाँ <br>
+                    <span class="text-lg md:text-xl opacity-80">(Stories from the Village)</span>
+                </h2>
+                <div class="w-24 h-1 bg-brand-maroon mx-auto rounded mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
+                <div class="order-2 md:order-1">
+                    <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-md border-l-8 border-brand-saffron">
+                        <h3 class="font-heading text-xl md:text-2xl text-brand-maroon dark:text-brand-saffron mb-3">
+                            <i class="fa-solid fa-leaf mr-2"></i> सत्तू: देसी सुपरफूड (Sattu: The Power Food)
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed mb-4">
+                            <strong>(Hindi):</strong> क्या आप जानते हैं कि लिट्टी में भरा जाने वाला 'सत्तू' दुनिया के सबसे बेहतरीन सुपरफूड्स में से एक है? यह भुने हुए चने से बनता है जो प्रोटीन और फाइबर का भंडार है। यह न केवल पचने में आसान है, बल्कि गर्मियों में शरीर को ठंडक भी देता है। हमारे पूर्वज इसे "गरीबों का बादाम" कहते थे।
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm leading-relaxed italic border-t pt-3 dark:border-gray-600">
+                            <strong>(English):</strong> Did you know that the 'Sattu' stuffed inside Litti is a global superfood? Made from roasted gram flour, it is a powerhouse of protein and fiber. It is easy to digest and acts as a natural coolant for the body. Our ancestors wisely called it the "Almond of the poor" for its high nutritional value.
+                        </p>
+                    </div>
+                </div>
+                <div class="order-1 md:order-2 h-48 md:h-64 rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-gray-700 relative group">
+                    <img src="s.jpg" alt="Sattu" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center mb-12">
+                <div class="h-48 md:h-64 rounded-2xl overflow-hidden shadow-lg border-4 border-white dark:border-gray-700 relative group">
+                    <img src="varanasi.jpg" alt="Varanasi Ghat" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition"></div>
+                </div>
+                <div>
+                    <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-md border-r-8 border-brand-maroon">
+                        <h3 class="font-heading text-xl md:text-2xl text-brand-maroon dark:text-brand-saffron mb-3">
+                            <i class="fa-solid fa-om mr-2"></i> बनारस और बाटी का रिश्ता (The Soul of Kashi)
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed mb-4">
+                            <strong>(Hindi):</strong> बनारस में बाटी चोखा केवल भोजन नहीं, एक उत्सव है। गंगा के घाटों पर या ठंड की रातों में अलाव के पास बैठकर दोस्तों के साथ बाटी फोड़ना और घी में डुबोना यहाँ की संस्कृति का हिस्सा है। ऐसा माना जाता है कि यह सात्विक भोजन बाबा विश्वनाथ को भी अत्यंत प्रिय है।
+                        </p>
+                        <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm leading-relaxed italic border-t pt-3 dark:border-gray-600">
+                            <strong>(English):</strong> In Varanasi, Baati Chokha is not just a meal, it's a celebration. Sitting by the Ganga Ghats or around a bonfire in winter, cracking open a hot Baati, and dipping it in Ghee is part of the culture here. It is believed to be a 'Satvik' meal loved by Baba Vishwanath himself.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-brand-maroon rounded-3xl p-6 md:p-10 text-center shadow-2xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <i class="fa-solid fa-quote-left text-4xl text-brand-saffron opacity-50 mb-4"></i>
+                    <h3 class="font-heading text-xl md:text-3xl text-white mb-4">
+                        "मिट्टी की खुशबू, कंडे की आग, <br> यही है असली गाँव का स्वाद।"
+                    </h3>
+                    <p class="text-brand-cream text-sm md:text-lg opacity-90 max-w-2xl mx-auto">
+                        आज के आधुनिक युग में, हम गैस और ओवन का खाना खाते हैं, लेकिन 'पॉपुलर बाटी चोखा' में हम आज भी वही पुरानी विधि अपनाते हैं। कंडे (Cow Dung Cakes) की धीमी आंच खाने में वो "सोंधापन" (Smoky Flavor) लाती है जो किसी 5-स्टार होटल में नहीं मिल सकता।
+                    </p>
+                    <p class="text-brand-gold text-xs md:text-sm mt-4 italic">
+                        (The slow roasting on cow dung cakes adds a smoky aroma that no modern oven can replicate. We preserve this ancient method for you.)
+                    </p>
+                </div>
+                <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-12 md:py-16 bg-brand-cream dark:bg-brand-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-2xl md:text-3xl text-center text-brand-maroon dark:text-brand-saffron mb-8 md:mb-12">
+                ग्राहकों की राय (Reviews)
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-b-4 border-brand-saffron transform transition hover:scale-[1.02]">
+                    <div class="flex text-brand-saffron mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-gray-600 dark:text-gray-300 mb-4 text-sm">"बनारस में सबसे बेहतरीन बाटी चोखा। देसी घी का स्वाद और बाबा का आशीर्वाद!"</p>
+                    <h4 class="font-bold font-heading text-sm">- राजेश कुमार</h4>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-b-4 border-brand-saffron transform transition hover:scale-[1.02]">
+                    <div class="flex text-brand-saffron mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p class="italic text-gray-600 dark:text-gray-300 mb-4 text-sm">"The Special Combo Thali is a must-try. Very hygienic and authentic village taste."</p>
+                    <h4 class="font-bold font-heading text-sm">- अमित सिंह</h4>
+                </div>
+                 <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border-b-4 border-brand-saffron transform transition hover:scale-[1.02]">
+                    <div class="flex text-brand-saffron mb-3 text-sm">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="italic text-gray-600 dark:text-gray-300 mb-4 text-sm">"यहाँ की खीर और सत्तू पराठा बहुत ही स्वादिष्ट है। बिल्कुल घर जैसा स्वाद।"</p>
+                    <h4 class="font-bold font-heading text-sm">- स्नेहा गुप्ता</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-brand-maroon dark:bg-black text-brand-cream py-8 md:py-10 border-t-8 border-brand-gold">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6">
+                <h2 class="font-heading text-2xl md:text-3xl text-brand-saffron leading-none mb-1">पॉपुलर बाटी चोखा</h2>
+                <span class="font-body text-xs md:text-sm tracking-widest opacity-80">Popular Baati Chokha</span>
+            </div>
+            
+            <p class="mb-3 text-base md:text-lg"><i class="fa-solid fa-location-dot mr-2 text-brand-saffron"></i> सिगरा - वाराणसी (Sigra, Varanasi)</p>
+             <p class="mb-6 text-lg md:text-xl font-bold"><i class="fa-solid fa-phone mr-2 text-brand-saffron"></i> +91 9389549191</p>
+            
+             <div class="flex justify-center gap-6 mb-8">
+                 <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-brand-saffron transition text-xl"><i class="fa-brands fa-whatsapp"></i></a>
+                 <a href="#" class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-brand-saffron transition text-xl"><i class="fa-brands fa-facebook-f"></i></a>
+             </div>
+
+            <p class="opacity-70 text-xs md:text-sm">© 2026 Popular Baati Chokha. All Rights Reserved.</p>
+            
+            <button onclick="toggleAdmin()" class="mt-6 text-white/50 hover:text-brand-saffron flex items-center gap-2 mx-auto text-sm border border-white/20 px-4 py-2 rounded-full">
+                <i class="fa-solid fa-lock"></i> एडमिन (Admin)
+            </button>
+        </div>
+    </footer>
+
+    <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white dark:bg-gray-900 shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 flex flex-col font-body">
+        <div class="bg-brand-maroon text-white p-4 flex justify-between items-center shadow-md">
+            <h3 class="font-heading text-lg flex items-center gap-2"><i class="fa-solid fa-plate-wheat"></i> आपकी थाली (Your Cart)</h3>
+            <button onclick="toggleCart()" class="hover:text-brand-saffron transition bg-white/10 rounded-full w-8 h-8 flex items-center justify-center"><i class="fa-solid fa-xmark text-lg"></i></button>
+        </div>
+        <div id="cart-content" class="flex-1 overflow-y-auto p-4 space-y-4 dark:text-gray-200 bg-gray-50 dark:bg-black/20">
+            </div>
+        <div class="p-4 border-t dark:border-gray-700 bg-white dark:bg-gray-800 shadow-[0_-5px_15px_rgba(0,0,0,0.1)]">
+            <div class="flex justify-between font-bold text-xl mb-4 text-brand-maroon dark:text-brand-saffron">
+                <span>कुल (Total):</span>
+                <span>₹<span id="total-price">0</span></span>
+            </div>
+            <button onclick="checkout()" class="w-full bg-[#25D366] text-white py-3.5 rounded-full font-bold hover:bg-[#128C7E] transition flex items-center justify-center gap-2 shadow-lg animate-pulse active:scale-95">
+                <i class="fa-brands fa-whatsapp text-2xl"></i> व्हाट्सएप पर ऑर्डर करें
+            </button>
+        </div>
+    </div>
+
+    <div id="admin-modal" class="fixed inset-0 bg-black/80 z-[110] hidden flex items-center justify-center p-4 font-body backdrop-blur-sm">
+        <div class="bg-white dark:bg-gray-900 rounded-xl w-full max-w-md overflow-hidden shadow-2xl border-2 border-brand-saffron transform transition-all scale-100">
+            <div class="bg-brand-maroon text-white p-4 flex justify-between shadow-md">
+                <span class="font-heading text-lg"><i class="fa-solid fa-user-gear mr-2"></i> एडमिन पैनल (Admin Panel)</span>
+                <button onclick="toggleAdmin()" class="hover:text-brand-saffron transition"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            <div class="p-6 dark:text-gray-200">
+                <div id="admin-login">
+                    <label class="block text-sm font-bold mb-2 text-brand-maroon dark:text-brand-saffron">पासवर्ड दर्ज करें (Enter Password):</label>
+                    <input type="password" id="admin-pass" placeholder="eg. admin123" class="w-full border-2 dark:border-gray-700 dark:bg-gray-800 p-3 rounded-lg mb-4 focus:border-brand-saffron outline-none transition">
+                    <button onclick="loginAdmin()" class="w-full bg-brand-saffron text-white py-3 rounded-lg font-bold hover:bg-brand-maroon transition shadow-md active:scale-95">लॉगिन (Login)</button>
+                </div>
+                <div id="admin-dashboard" class="hidden">
+                    <h4 class="font-bold mb-4 text-brand-maroon dark:text-brand-saffron flex items-center gap-2"><i class="fa-solid fa-tags"></i> मूल्य बदलें (Update Prices)</h4>
+                    <div id="admin-list" class="max-h-60 md:max-h-80 overflow-y-auto space-y-3 pr-2 custom-scrollbar">
+                        </div>
+                    <button onclick="savePrices()" class="w-full bg-green-600 text-white py-3 rounded-lg mt-6 font-bold hover:bg-green-700 transition shadow-md">सेव करें (Save Changes)</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="overlay" class="fixed inset-0 bg-black/50 z-[90] hidden backdrop-blur-sm" onclick="toggleCart()"></div>
+
+
+    <script>
+        // Menu Data with Images
+        let menuItems = [
+            // Regular Items (Baati Chokha Focus)
+            { id: 1, hindi: "2 पीस घी बाटी चोखा", eng: "2 Pc Ghee Baati Chokha", price: 70, cat: 'regular', img: '2pcbatich.jpg' },
+            { id: 2, hindi: "1 पीस घी बाटी चोखा", eng: "1 Pc Ghee Baati Chokha", price: 45, cat: 'regular', img: '1pcbatich.jpg' },
+            { id: 3, hindi: "1 पीस बाटी चोखा दाल चावल", eng: "1 Pc Baati Chokha Dal Rice", price: 110, cat: 'regular', img: '1pcdalch.jpg' },
+            { id: 4, hindi: "2 पीस बाटी चोखा दाल चावल", eng: "2 Pc Baati Chokha Dal Rice", price: 140, cat: 'regular', img: '2pcdalch.jpg' },
+            { id: 5, hindi: "हॉफ चावल दाल चोखा", eng: "Half Rice Dal Chokha", price: 80, cat: 'regular', img: 'dalch.jpg' },
+            { id: 6, hindi: "फुल चावल दाल चोखा", eng: "Full Rice Dal Chokha", price: 100, cat: 'regular', img: 'fulldalch.jpg' },
+            { id: 7, hindi: "1 पीस बाटी चोखा दाल", eng: "1 Pc Baati Chokha Dal", price: 80, cat: 'regular', img: '1pcdal.jpg' },
+            { id: 8, hindi: "2 पीस बाटी चोखा दाल", eng: "2 Pc Baati Chokha Dal", price: 100, cat: 'regular', img: '2batidal.jpg' },
+            { id: 9, hindi: "1 पीस फ्राई बाटी चोखा", eng: "1 Pc Fry Baati Chokha", price: 45, cat: 'regular', img: 'frybati.jpg' },
+            { id: 10, hindi: "2 पीस फ्राई बाटी चोखा", eng: "2 Pc Fry Baati Chokha", price: 80, cat: 'regular', img: '2frybati.jpg' },
+            
+            // Sides/Drinks
+            { id: 11, hindi: "खीर", eng: "Kheer", price: 70, cat: 'sides', img: 'kheer.jpg' },
+            { id: 12, hindi: "छाछ", eng: "Chaach (Buttermilk)", price: 40, cat: 'sides', img: 'chach.jpg' },
+            { id: 13, hindi: "चुरमा", eng: "Churma", price: 40, cat: 'sides', img: 'churma.jpg' },
+            { id: 14, hindi: "लस्सी", eng: "Lassi", price: 50, cat: 'sides', img: 'lassi.jpg' },
+            { id: 15, hindi: "दही बड़ा", eng: "Dahi Vada", price: 40, cat: 'sides', img: 'dahibada.jpg' },
+            // Paratha
+            { id: 16, hindi: "पनीर पराठा", eng: "Paneer Paratha", price: 100, cat: 'sides', img: 'paneer.jpg' },
+            { id: 17, hindi: "आलू पराठा", eng: "Aloo Paratha", price: 70, cat: 'sides', img: 'allo.jpg' },
+            { id: 18, hindi: "सत्तू पराठा", eng: "Sattu Paratha", price: 90, cat: 'sides', img: 'sattu.jpg' },
+            { id: 19, hindi: "प्याज पराठा", eng: "Onion Paratha", price: 80, cat: 'sides', img: 'pyaz.jpg' },
+            
+            // Combos (Thali style images)
+            { id: 20, hindi: "1 पीस बाटी चोखा, दाल चावल + खीर", eng: "Combo 1 + Kheer", price: 160, cat: 'combos', desc: "सलाद, अचार, चटनी, पानी के साथ", img: 'combo.jpg' },
+            { id: 21, hindi: "1 पीस बाटी चोखा, दाल चावल + छाछ", eng: "Combo 1 + Chaach", price: 160, cat: 'combos', desc: "सलाद, अचार, चटनी, पानी के साथ", img: 'combo2.jpg' },
+            { id: 22, hindi: "1 पीस बाटी चोखा, दाल चावल + चुरमा", eng: "Combo 1 + Churma", price: 160, cat: 'combos', desc: "सलाद, अचार, चटनी, पानी के साथ", img: 'combo3.jpg' },
+            { id: 23, hindi: "1 पीस बाटी चोखा, दाल चावल + लस्सी", eng: "Combo 1 + Lassi", price: 170, cat: 'combos', desc: "सलाद, अचार, चटनी, पानी के साथ", img: 'combo4.jpg' },
+            { id: 24, hindi: "1 पीस बाटी चोखा, दाल चावल + दही बड़ा", eng: "Combo 1 + Dahi Vada", price: 160, cat: 'combos', desc: "सलाद, अचार, चटनी, पानी के साथ", img: 'combo5.jpg' }
+        ];
+
+        // Load prices from local storage if available
+        const storedPrices = localStorage.getItem('popularMenuPrices');
+        if (storedPrices) {
+            const pricesObj = JSON.parse(storedPrices);
+            menuItems.forEach(item => {
+                if(pricesObj[item.id]) item.price = pricesObj[item.id];
+            });
+        }
+
+        let cart = [];
+
+        // --- Initialization ---
+        function init() {
+            renderMenuCategory('regular', 'menu-regular');
+            renderMenuCategory('sides', 'menu-sides');
+            renderMenuCategory('combos', 'menu-combos');
+            updateCartUI();
+        }
+
+        function renderMenuCategory(category, elementId) {
+            const container = document.getElementById(elementId);
+            const items = menuItems.filter(i => i.cat === category);
+            
+            container.innerHTML = items.map(item => `
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group relative flex flex-col border border-gray-100 dark:border-gray-700 hover:-translate-y-2">
+                    
+                    <div class="h-56 md:h-72 overflow-hidden relative">
+                        <img src="${item.img}" alt="${item.eng}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                         <div class="absolute top-3 right-3 bg-brand-saffron text-white text-sm font-bold px-3 py-1 rounded-full shadow-md z-10">
+                            ₹${item.price}
+                        </div>
+                    </div>
+
+                    <div class="p-4 md:p-5 flex-1 flex flex-col justify-between relative z-10 bg-white dark:bg-gray-800">
+                        <div>
+                            <h3 class="font-heading text-lg md:text-xl text-brand-maroon dark:text-brand-saffron mb-1 leading-tight">${item.hindi}</h3>
+                            <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400 mb-3 font-body italic">${item.eng}</p>
+                            ${item.desc ? `<p class="text-[10px] md:text-xs text-gray-600 dark:text-gray-300 mb-4 bg-brand-cream dark:bg-gray-700 p-2 rounded-lg flex items-start gap-2"><i class="fa-solid fa-utensils mt-0.5 text-brand-saffron"></i> ${item.desc}</p>` : ''}
+                        </div>
+                        <div class="mt-2">
+                             <button onclick="addToCart(${item.id})" class="w-full bg-brand-maroon text-white px-4 py-3 rounded-xl font-bold text-sm hover:bg-brand-saffron transition flex items-center justify-center gap-2 group-hover:shadow-md active:scale-95 tracking-wider">
+                                थाली में जोड़ें <i class="fa-solid fa-cart-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // --- Cart Functions ---
+        function toggleCart() {
+            const sidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('overlay');
+            const isClosed = sidebar.classList.contains('translate-x-full');
+            
+            if (isClosed) {
+                sidebar.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                // Prevent background scrolling when cart is open
+                document.body.style.overflow = 'hidden';
+            } else {
+                sidebar.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+                // Re-enable background scrolling
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function addToCart(id) {
+            const item = menuItems.find(i => i.id === id);
+            const existingItem = cart.find(i => i.id === id);
+            
+            if (existingItem) {
+                existingItem.qty++;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+            updateCartUI();
+            if(cart.length === 1 && cart[0].qty === 1) {
+                 toggleCart();
+            }
+        }
+
+        function updateCartUI() {
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            document.getElementById('cart-badge').innerText = totalQty;
+
+            const cartContent = document.getElementById('cart-content');
+            let totalPrice = 0;
+
+            if (cart.length === 0) {
+                cartContent.innerHTML = `<div class="text-center text-gray-500 dark:text-gray-400 mt-20 h-full flex flex-col justify-center items-center opacity-60">
+                    <i class="fa-solid fa-plate-wheat text-5xl md:text-6xl mb-4 text-brand-saffron"></i>
+                    <p class="text-base md:text-lg font-heading">आपकी थाली खाली है</p>
+                    <p class="text-xs md:text-sm font-body">(Your cart is empty)</p>
+                </div>`;
+            } else {
+                cartContent.innerHTML = cart.map(item => {
+                    const itemTotal = item.price * item.qty;
+                    totalPrice += itemTotal;
+                    return `
+                        <div class="flex items-center bg-white dark:bg-gray-800 p-3 rounded-xl shadow-sm border-l-4 border-brand-saffron gap-3 animate-fade-in-up">
+                            <img src="${item.img}" class="w-14 h-14 md:w-16 md:h-16 rounded-lg object-cover" alt="${item.eng}">
+                            <div class="flex-1">
+                                <h4 class="font-heading text-brand-maroon dark:text-brand-saffron text-sm leading-tight">${item.hindi}</h4>
+                                <div class="text-xs text-gray-500 dark:text-gray-400 mt-1 font-bold">₹${item.price} x ${item.qty}</div>
+                            </div>
+                            <div class="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-full p-1 shadow-inner">
+                                <button onclick="modQty(${item.id}, -1)" class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-white dark:bg-gray-600 text-brand-dark dark:text-white hover:bg-brand-maroon hover:text-white transition flex items-center justify-center shadow-sm"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                                <span class="font-bold w-6 text-center text-sm">${item.qty}</span>
+                                <button onclick="modQty(${item.id}, 1)" class="w-7 h-7 md:w-8 md:h-8 rounded-full bg-brand-saffron text-white hover:bg-brand-maroon transition flex items-center justify-center shadow-sm"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            document.getElementById('total-price').innerText = totalPrice;
+        }
+
+        function modQty(id, change) {
+            const item = cart.find(i => i.id === id);
+            if (item) {
+                item.qty += change;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== id);
+                }
+                updateCartUI();
+            }
+        }
+
+        function checkout() {
+            if (cart.length === 0) return alert("कृपया पहले कुछ आइटम चुनें। (Please add items first)");
+            
+            let message = "नमस्ते! मैं पॉपुलर बाटी चोखा से ऑर्डर करना चाहता हूँ:\n\n";
+            cart.forEach(item => {
+                message += `▪️ ${item.hindi} (${item.qty}) - ₹${item.price * item.qty}\n`;
+            });
+            const total = document.getElementById('total-price').innerText;
+            message += `\n*कुल राशि (Total Bill): ₹${total}*`;
+            message += "\n\nकृपया मेरा ऑर्डर कन्फर्म करें।";
+
+            const phoneNumber = "919389549191"; 
+            window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`, '_blank');
+        }
+
+        // --- Dark Mode Toggle ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+
+        // --- Admin Panel Functions ---
+        function toggleAdmin() {
+            const modal = document.getElementById('admin-modal');
+            modal.classList.toggle('hidden');
+            if (modal.classList.contains('hidden')) {
+                document.getElementById('admin-login').classList.remove('hidden');
+                document.getElementById('admin-dashboard').classList.add('hidden');
+                document.getElementById('admin-pass').value = '';
+            }
+        }
+
+        function loginAdmin() {
+            const pass = document.getElementById('admin-pass').value;
+            if (pass === 'admin123') {
+                document.getElementById('admin-login').classList.add('hidden');
+                document.getElementById('admin-dashboard').classList.remove('hidden');
+                renderAdminInputs();
+            } else {
+                alert("गलत पासवर्ड (Wrong Password)");
+            }
+        }
+
+        function renderAdminInputs() {
+            const container = document.getElementById('admin-list');
+            container.innerHTML = menuItems.map(item => `
+                <div class="flex justify-between items-center bg-gray-50 dark:bg-gray-800 p-3 rounded-lg border dark:border-gray-700">
+                    <span class="text-sm font-heading text-brand-dark dark:text-gray-200 flex-1 line-clamp-1 mr-2">${item.hindi}</span>
+                    <div class="flex items-center gap-1 md:gap-2 bg-white dark:bg-gray-700 rounded-md p-1 border dark:border-gray-600">
+                        <span class="text-brand-saffron font-bold pl-1 md:pl-2 text-sm">₹</span>
+                        <input type="number" id="price-input-${item.id}" value="${item.price}" class="w-16 md:w-20 bg-transparent p-1 rounded text-right font-bold outline-none dark:text-white text-sm">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function savePrices() {
+            const newPricesObj = {};
+            menuItems.forEach(item => {
+                const input = document.getElementById(`price-input-${item.id}`);
+                const newPrice = parseInt(input.value);
+                if (!isNaN(newPrice) && newPrice > 0) {
+                    item.price = newPrice;
+                    newPricesObj[item.id] = newPrice;
+                }
+            });
+            
+            localStorage.setItem('popularMenuPrices', JSON.stringify(newPricesObj));
+            
+            init();
+            updateCartUI();
+            alert("मूल्य अपडेट हो गए! (Prices Updated Successfully)");
+            toggleAdmin();
+        }
+
+        // Initialize app on load
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
