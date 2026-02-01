@@ -40,31 +40,31 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* --- Om Animation --- */
+        /* --- Om Animation (Left & Right) --- */
         .om-halo {
             position: absolute;
-            top: 50%; left: 50%;
-            width: 150%; height: 150%;
-            transform: translate(-50%, -50%);
+            top: 50%;
+            width: 70%; /* Adjusted size */
+            height: 70%;
             /* Using a simple SVG for the Om symbol */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%23ff9933' d='M250 0C112.1 0 0 112.1 0 250s112.1 250 250 250 250-112.1 250-250S387.9 0 250 0zm0 450C139.5 450 50 360.5 50 250S139.5 50 250 50s200 89.5 200 200-89.5 200-200 200z' opacity='0.1'/%3E%3Ctext x='50%25' y='50%25' font-size='200' text-anchor='middle' dominant-baseline='middle' fill='%23ff9933' opacity='0.3'%3Eॐ%3C/text%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: center;
             z-index: -1; /* Behind the photo frame */
-            animation: spin-slow 20s linear infinite;
+            animation: spin-slow-side 20s linear infinite;
+        }
+        .om-halo-left {
+            left: -25%; /* Position to the left */
+        }
+        .om-halo-right {
+            right: -25%; /* Position to the right */
         }
         .dark .om-halo { opacity: 0.5; }
 
-        /* --- New Baba Ji Frame --- */
-        .baba-frame-container {
-            position: relative;
-            display: inline-block;
-            padding: 10px; /* Spacing for the frame */
-        }
-
+        /* --- Baba Ji Frame (As requested) --- */
         .baba-frame-border {
             border: 8px solid #d4af37; /* Golden border */
-            border-radius: 30px 30px 0 0; /* Arch top */
+            border-radius: 30px 30px 0 0; /* Arch top style */
             overflow: hidden; /* Clip the image */
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             background-color: #fff;
@@ -77,6 +77,13 @@
         .culture-card:hover { transform: translateY(-5px); background: rgba(255, 255, 255, 0.2); }
         .culture-icon { font-size: 40px; margin-bottom: 10px; display: block; }
         .culture-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; color: #FFD700; font-family: 'Rozha One', serif; }
+        
+        /* New animation for side Om symbols */
+        @keyframes spin-slow-side {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+        /* Keep original spin-slow just in case */
         @keyframes spin-slow { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
     </style>
 </head>
@@ -116,11 +123,14 @@
             </h2>
             
             <div class="relative w-full max-w-xl mx-auto mb-6 md:mb-8 animate-fade-in-up">
-                <div class="baba-frame-container">
-                    <div class="om-halo"></div>
+                <div class="relative flex justify-center items-center">
+                    <div class="om-halo om-halo-left"></div>
+
                     <div class="baba-frame-border h-72 md:h-96 w-full bg-white relative z-10">
                         <img src="image_1.jpg" alt="Baba Ji" class="w-full h-full object-cover">
                     </div>
+
+                    <div class="om-halo om-halo-right"></div>
                 </div>
             </div>
 
@@ -210,7 +220,7 @@
     <section class="py-12 md:py-16 bg-brand-maroon text-brand-cream relative">
         <div class="container mx-auto px-4">
             <h2 class="font-heading text-2xl md:text-3xl text-center text-brand-saffron mb-8">हमें यहाँ खोजें (Find Us Here)</h2>
-            <div class="w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-gold relative z-10"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.843653777647!2d82.98776031501177!3d25.31357698384217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2e26c6020739%3A0x673479634591d3e2!2sPopular%20Baati%20Chokha!5e0!3m2!1sen!2sin!4v1625633642123!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
+            <div class="w-full h-64 md:h-96 rounded-2xl overflow-hidden shadow-2xl border-4 border-brand-gold relative z-10"><iframe src="http://googleusercontent.com/maps.google.com/1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe></div>
         </div>
         <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');"></div>
     </section>
