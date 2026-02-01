@@ -29,6 +29,12 @@
                     animation: {
                         'spin-slow': 'spin 10s linear infinite',
                         'fade-in-up': 'fadeInUp 1s ease-out'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
                     }
                 }
             }
@@ -36,19 +42,7 @@
     </script>
 
     <style>
-        /* Custom styles */
-        .om-halo {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 120%; height: 120%;
-            transform: translate(-50%, -50%);
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23ff9933'%3E%3Ctext x='50' y='50' font-size='80' text-anchor='middle' dominant-baseline='central'%3Eॐ%3C/text%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
-            opacity: 0.2;
-            z-index: -1;
-            animation: spin 15s linear infinite;
-        }
+        /* Baba Ji Photo Frame (Maintained Large Size) */
         .photo-frame {
             border: 8px solid #d4af37;
             border-radius: 100px 100px 0 0;
@@ -56,6 +50,7 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             background-color: #fff;
         }
+
         .village-home-bg {
             background-color: #EFEBE9; 
             background-image: url("https://www.transparenttextures.com/patterns/wall-4-light.png");
@@ -67,6 +62,7 @@
             position: relative;
             z-index: 10;
         }
+
         .culture-section {
             background-color: #5D4037; 
             background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
@@ -76,6 +72,7 @@
             border-top: 5px solid #FFD700;
             border-bottom: 5px solid #FFD700;
         }
+
         .culture-card {
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid #FFD700;
@@ -100,8 +97,8 @@
 
     <nav class="sticky top-0 z-50 bg-brand-maroon dark:bg-black shadow-lg text-white py-2 md:py-3 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-2 md:gap-3 group">
-                <div class="h-12 w-12 md:h-16 md:w-16 rounded-full overflow-hidden border-2 border-brand-saffron shadow-lg bg-black">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="h-14 w-14 md:h-20 md:w-20 rounded-full overflow-hidden border-2 border-brand-saffron shadow-lg bg-black">
                     <video src="http://googleusercontent.com/generated_video_content/12274002092324204740" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
                 <div class="flex flex-col">
@@ -133,7 +130,7 @@
             </h2>
             
             <div class="relative w-full max-w-2xl mx-auto mb-6 md:mb-8">
-                <div class="photo-frame h-64 md:h-96 w-full bg-white relative z-10 overflow-hidden">
+                <div class="photo-frame h-80 md:h-96 w-full bg-white relative z-10 overflow-hidden">
                     <img src="image_1.png" alt="Popular Bati Chokha Stall" class="w-full h-full object-cover">
                 </div>
             </div>
@@ -205,8 +202,8 @@
 
     <section class="py-12 md:py-16 bg-[#FFF8E1] dark:bg-[#1a1a1a] border-t-4 border-brand-gold">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-10">
-                <span class="text-brand-saffron font-bold tracking-widest uppercase text-xs md:text-sm">In The News</span>
+            <div class="text-center mb-12">
+                <span class="text-brand-saffron font-bold tracking-widest uppercase text-xs md:text-sm">Media & Culture</span>
                 <h2 class="font-heading text-2xl md:text-4xl text-brand-maroon dark:text-brand-saffron mt-2">
                     चर्चा और कहानियाँ <br>
                     <span class="text-lg md:text-xl opacity-80">(Media Spotlight & Stories)</span>
@@ -214,56 +211,43 @@
                 <div class="w-24 h-1 bg-brand-maroon mx-auto rounded mt-4"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
                 
-                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300">
-                    <div class="h-64 overflow-hidden relative">
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300 h-full">
+                    <div class="h-56 overflow-hidden relative">
                         <img src="Screenshot 2026-02-01 114822.jpg" alt="Amar Ujala Article" class="w-full h-full object-cover transition duration-500 hover:scale-105">
                         <div class="absolute bottom-0 left-0 bg-brand-maroon text-white text-xs px-3 py-1">Amar Ujala Coverage</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">काशी का बाटी चोखा - बिहार से भी बेहतर?</h3>
+                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">काशी का बाटी चोखा</h3>
                         <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                            "काशी के पापुलर बाटी चोखा की बात ही निराली है। एक बार इसका जायका जुबान को लगा तो आप इसके दीवाने हो जाएंगे।" - अमर उजाला ने हमारी गुणवत्ता और स्वाद को सराहा है।
+                            "एक बार इसका जायका जुबान को लगा तो आप इसके दीवाने हो जाएंगे।" अमर उजाला ने लिखा है कि बनारस का यह बाटी चोखा बिहार से भी खास है।
                         </p>
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="Screenshot 2026-02-01 114912.jpg" alt="Making Process" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white text-xs px-3 py-1">Since 2002</div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300 h-full">
+                    <div class="h-56 overflow-hidden relative">
+                        <img src="Screenshot 2026-02-01 114912.jpg" alt="Sattu Making" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white text-xs px-3 py-1">The Superfood</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">17 साल का भरोसा</h3>
+                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">सत्तू: सेहत का खजाना</h3>
                         <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                            रोजाना 350-400 ग्राहक हमारे स्वाद के गवाह हैं। पप्पू कुमार और गुड्डू कुमार ने 17 साल पहले 5 रुपये से शुरुआत की थी, और आज भी वही शुद्धता और प्रेम परोस रहे हैं।
+                            हम बाटी के लिए सत्तू बाजार से नहीं खरीदते, बल्कि खुद तैयार करते हैं। यह "गरीबों का बादाम" प्रोटीन का सबसे शुद्ध स्रोत है और इसे हम अपनी खास विधि से तैयार करते हैं।
                         </p>
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="Screenshot 2026-02-01 114553.png" alt="Cart Logo" class="w-full h-full object-contain p-4 bg-yellow-100 transition duration-500 hover:scale-105">
-                        <div class="absolute bottom-0 left-0 bg-brand-maroon text-white text-xs px-3 py-1">Health & Heritage</div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">सत्तू और बनारस की आत्मा</h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                            हमारा सत्तू किसी दुकान का नहीं, घर का बना "सुपरफूड" है। यह सिर्फ खाना नहीं, बनारस की गलियों का सुकून है। बैंक कर्मचारियों से लेकर पर्यटकों तक, कॉलोनी का यह मोड़ सबका पसंदीदा अड्डा है।
-                        </p>
-                    </div>
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300">
-                    <div class="h-64 overflow-hidden relative">
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300 h-full">
+                    <div class="h-56 overflow-hidden relative">
                         <img src="Screenshot 2026-02-01 114847.jpg" alt="Crowd Eating" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white text-xs px-3 py-1">Customer Love</div>
+                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white text-xs px-3 py-1">Varanasi Soul</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">भीड़ जो गवाही देती है</h3>
+                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">बनारस की आत्मा</h3>
                         <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                            यूं तो कई दुकानें हैं, लेकिन जो भीड़ हमारे ठेले पर होती है, वो स्वाद की असली पहचान है। लोग यहाँ सिर्फ खाने नहीं, अपनापन महसूस करने आते हैं।
+                            कॉलोनी के मोड़ पर पप्पू कुमार का यह ठेला सिर्फ एक दुकान नहीं, बनारस का इमोशन है। बैंक बाबू हो या राहगीर, यहाँ की भीड़ बताती है कि असली स्वाद फाइव स्टार में नहीं, यहाँ है।
                         </p>
                     </div>
                 </div>
@@ -585,6 +569,7 @@
         }
 
         function loginAdmin() {
+            // Updated Password Check
             const pass = document.getElementById('admin-pass').value;
             if (pass === 'batti@123') { 
                 document.getElementById('admin-login').classList.add('hidden');
