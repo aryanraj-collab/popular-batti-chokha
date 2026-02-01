@@ -29,12 +29,6 @@
                     animation: {
                         'spin-slow': 'spin 10s linear infinite',
                         'fade-in-up': 'fadeInUp 1s ease-out'
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        }
                     }
                 }
             }
@@ -42,7 +36,15 @@
     </script>
 
     <style>
-        /* Baba Ji Photo Frame (Maintained Large Size) */
+        /* Custom Scrollbar Hide */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
         .photo-frame {
             border: 8px solid #d4af37;
             border-radius: 100px 100px 0 0;
@@ -50,7 +52,6 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
             background-color: #fff;
         }
-
         .village-home-bg {
             background-color: #EFEBE9; 
             background-image: url("https://www.transparenttextures.com/patterns/wall-4-light.png");
@@ -62,7 +63,6 @@
             position: relative;
             z-index: 10;
         }
-
         .culture-section {
             background-color: #5D4037; 
             background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
@@ -72,7 +72,6 @@
             border-top: 5px solid #FFD700;
             border-bottom: 5px solid #FFD700;
         }
-
         .culture-card {
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid #FFD700;
@@ -87,18 +86,14 @@
         .culture-icon { font-size: 40px; margin-bottom: 10px; display: block; }
         .culture-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; color: #FFD700; font-family: 'Rozha One', serif; }
         
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #f1f1f1; }
-        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
     </style>
 </head>
 <body class="font-body bg-brand-cream dark:bg-brand-dark text-gray-800 dark:text-brand-cream transition-colors duration-300">
 
     <nav class="sticky top-0 z-50 bg-brand-maroon dark:bg-black shadow-lg text-white py-2 md:py-3 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="h-14 w-14 md:h-20 md:w-20 rounded-full overflow-hidden border-2 border-brand-saffron shadow-lg bg-black">
+            <a href="#" class="flex items-center gap-2 md:gap-3 group">
+                <div class="h-12 w-12 md:h-16 md:w-16 rounded-full overflow-hidden border-2 border-brand-saffron shadow-lg bg-black">
                     <video src="http://googleusercontent.com/generated_video_content/12274002092324204740" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
                 <div class="flex flex-col">
@@ -200,54 +195,86 @@
         </div>
     </section>
 
-    <section class="py-12 md:py-16 bg-[#FFF8E1] dark:bg-[#1a1a1a] border-t-4 border-brand-gold">
+    <section class="py-16 bg-[#FFF8E1] dark:bg-[#1a1a1a] border-t-4 border-brand-gold relative">
         <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <span class="text-brand-saffron font-bold tracking-widest uppercase text-xs md:text-sm">Media & Culture</span>
+            <div class="text-center mb-8">
+                <span class="text-brand-saffron font-bold tracking-widest uppercase text-xs md:text-sm">In The News</span>
                 <h2 class="font-heading text-2xl md:text-4xl text-brand-maroon dark:text-brand-saffron mt-2">
                     चर्चा और कहानियाँ <br>
                     <span class="text-lg md:text-xl opacity-80">(Media Spotlight & Stories)</span>
                 </h2>
-                <div class="w-24 h-1 bg-brand-maroon mx-auto rounded mt-4"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            <div class="absolute top-1/2 left-2 md:left-8 z-30 transform -translate-y-1/2">
+                <button onclick="scrollBlog('left')" class="bg-brand-maroon text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-brand-saffron transition"><i class="fa-solid fa-chevron-left text-xl"></i></button>
+            </div>
+            <div class="absolute top-1/2 right-2 md:right-8 z-30 transform -translate-y-1/2">
+                <button onclick="scrollBlog('right')" class="bg-brand-maroon text-white w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-brand-saffron transition"><i class="fa-solid fa-chevron-right text-xl"></i></button>
+            </div>
+
+            <div id="blog-container" class="flex overflow-x-auto gap-8 pb-10 px-4 snap-x snap-mandatory no-scrollbar scroll-smooth">
                 
-                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300 h-full">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="Screenshot 2026-02-01 114822.jpg" alt="Amar Ujala Article" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                        <div class="absolute bottom-0 left-0 bg-brand-maroon text-white text-xs px-3 py-1">Amar Ujala Coverage</div>
+                <div class="min-w-[320px] md:min-w-[400px] bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-brand-maroon/20 snap-center transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="Screenshot 2026-02-01 114822.jpg" class="w-full h-full object-cover transition duration-700 hover:scale-110" alt="News">
+                        <div class="absolute bottom-0 left-0 bg-brand-maroon text-white px-4 py-1 text-sm font-bold">Amar Ujala</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">काशी का बाटी चोखा</h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                            "एक बार इसका जायका जुबान को लगा तो आप इसके दीवाने हो जाएंगे।" अमर उजाला ने लिखा है कि बनारस का यह बाटी चोखा बिहार से भी खास है।
+                        <h3 class="font-heading text-2xl text-brand-maroon dark:text-brand-saffron mb-3">बिहार से भी बेहतर?</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            "काशी के पापुलर बाटी चोखा की बात ही निराली है। एक बार इसका जायका जुबान को लगा तो आप इसके दीवाने हो जाएंगे।" - अमर उजाला ने हमारी गुणवत्ता और स्वाद को सराहा है।
                         </p>
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300 h-full">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="Screenshot 2026-02-01 114912.jpg" alt="Sattu Making" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white text-xs px-3 py-1">The Superfood</div>
+                <div class="min-w-[320px] md:min-w-[400px] bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-brand-maroon/20 snap-center transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="Screenshot 2026-02-01 114912.jpg" class="w-full h-full object-cover transition duration-700 hover:scale-110" alt="Journey">
+                        <div class="absolute bottom-0 left-0 bg-brand-maroon text-white px-4 py-1 text-sm font-bold">17 Years Legacy</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">सत्तू: सेहत का खजाना</h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                            हम बाटी के लिए सत्तू बाजार से नहीं खरीदते, बल्कि खुद तैयार करते हैं। यह "गरीबों का बादाम" प्रोटीन का सबसे शुद्ध स्रोत है और इसे हम अपनी खास विधि से तैयार करते हैं।
+                        <h3 class="font-heading text-2xl text-brand-maroon dark:text-brand-saffron mb-3">5 रुपये से शुरुआत</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            पप्पू कुमार ने 17 साल पहले मात्र 5 रुपये में बाटी चोखा बेचना शुरू किया था। आज भी वही स्वाद और वही भरोसा कायम है। 400 से ज्यादा ग्राहक रोज हमारे स्वाद का आनंद लेते हैं।
                         </p>
                     </div>
                 </div>
 
-                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300 h-full">
-                    <div class="h-56 overflow-hidden relative">
-                        <img src="Screenshot 2026-02-01 114847.jpg" alt="Crowd Eating" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white text-xs px-3 py-1">Varanasi Soul</div>
+                <div class="min-w-[320px] md:min-w-[400px] bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-brand-maroon/20 snap-center transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://media.istockphoto.com/id/1297316474/photo/sattu-summer-drink.jpg?s=612x612&w=0&k=20&c=6_6_6_6_6_6_6_6_6_6_6_6_6_6_6_6_" class="w-full h-full object-cover transition duration-700 hover:scale-110" alt="Sattu">
+                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white px-4 py-1 text-sm font-bold">Healthy Superfood</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">बनारस की आत्मा</h3>
-                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                            कॉलोनी के मोड़ पर पप्पू कुमार का यह ठेला सिर्फ एक दुकान नहीं, बनारस का इमोशन है। बैंक बाबू हो या राहगीर, यहाँ की भीड़ बताती है कि असली स्वाद फाइव स्टार में नहीं, यहाँ है।
+                        <h3 class="font-heading text-2xl text-brand-maroon dark:text-brand-saffron mb-3">सत्तू: सेहत का खजाना</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            हम बाटी के लिए सत्तू बाजार से नहीं खरीदते, बल्कि खुद तैयार करते हैं। यह "गरीबों का बादाम" प्रोटीन और फाइबर का खजाना है। शुद्ध चने को भूनकर और पीसकर बनाया गया हमारा सत्तू स्वाद और सेहत दोनों देता है।
+                        </p>
+                    </div>
+                </div>
+
+                <div class="min-w-[320px] md:min-w-[400px] bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-brand-maroon/20 snap-center transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="Screenshot 2026-02-01 114553.png" class="w-full h-full object-contain bg-yellow-50 transition duration-700 hover:scale-110" alt="Cart">
+                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white px-4 py-1 text-sm font-bold">Soul of Kashi</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-2xl text-brand-maroon dark:text-brand-saffron mb-3">बनारस की आत्मा</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            कॉलोनी के मोड़ पर पप्पू कुमार का यह ठेला सिर्फ एक दुकान नहीं, बनारस का इमोशन है। बैंक बाबू हो या राहगीर, यहाँ की भीड़ बताती है कि असली स्वाद फाइव स्टार में नहीं, यहाँ है। यहाँ का "सोंधापन" ही हमारी पहचान है।
+                        </p>
+                    </div>
+                </div>
+
+                 <div class="min-w-[320px] md:min-w-[400px] bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl border-2 border-brand-maroon/20 snap-center transition-all duration-500 hover:scale-105 hover:shadow-2xl">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="Screenshot 2026-02-01 114847.jpg" class="w-full h-full object-cover transition duration-700 hover:scale-110" alt="Crowd">
+                        <div class="absolute bottom-0 left-0 bg-brand-maroon text-white px-4 py-1 text-sm font-bold">Local Favorite</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-2xl text-brand-maroon dark:text-brand-saffron mb-3">भीड़ गवाही देती है</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            यूं तो यहाँ कई दुकानें लगती हैं, लेकिन जो भीड़ हमारे पास होती है, वो स्वाद की असली पहचान है। बैंक, नगर निगम और ऑफिस के लोग यहाँ सिर्फ खाना खाने नहीं, बल्कि सुकून के दो पल बिताने आते हैं।
                         </p>
                     </div>
                 </div>
@@ -321,17 +348,15 @@
             </button>
         </div>
     </footer>
-
-    <div class="fixed bottom-6 left-6 z-[90] flex flex-col gap-4">
+<div class="fixed bottom-6 left-6 z-[90] flex flex-col gap-4">
         <a href="tel:+916387271348" class="w-12 h-12 md:w-14 md:h-14 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition hover:scale-110 border-2 border-white animate-bounce" style="animation-duration: 3s;">
             <i class="fa-solid fa-phone text-xl md:text-2xl"></i>
         </a>
         
-        <a href="https://wa.me/916387271348?text=Namaste!%20I%20want%20to%20order%20Bati%20Chokha." target="_blank" class="w-12 h-12 md:w-14 md:h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#128C7E] transition hover:scale-110 border-2 border-white">
+        <a href="https://wa.me/916387271348?text=Namaste!%20I%20want%20to%20order%20Baati%20Chokha." target="_blank" class="w-12 h-12 md:w-14 md:h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#128C7E] transition hover:scale-110 border-2 border-white">
             <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
         </a>
     </div>
-
     <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white dark:bg-gray-900 shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 flex flex-col font-body">
         <div class="bg-brand-maroon text-white p-4 flex justify-between items-center shadow-md">
             <h3 class="font-heading text-lg flex items-center gap-2"><i class="fa-solid fa-plate-wheat"></i> आपकी थाली (Your Cart)</h3>
@@ -359,7 +384,7 @@
             <div class="p-6 dark:text-gray-200">
                 <div id="admin-login">
                     <label class="block text-sm font-bold mb-2 text-brand-maroon dark:text-brand-saffron">पासवर्ड दर्ज करें (Enter Password):</label>
-                    <input type="password" id="admin-pass" placeholder="eg. batti@123" class="w-full border-2 dark:border-gray-700 dark:bg-gray-800 p-3 rounded-lg mb-4 focus:border-brand-saffron outline-none transition">
+                    <input type="password" id="admin-pass" placeholder="eg. popular@123" class="w-full border-2 dark:border-gray-700 dark:bg-gray-800 p-3 rounded-lg mb-4 focus:border-brand-saffron outline-none transition">
                     <button onclick="loginAdmin()" class="w-full bg-brand-saffron text-white py-3 rounded-lg font-bold hover:bg-brand-maroon transition shadow-md active:scale-95">लॉगिन (Login)</button>
                 </div>
                 <div id="admin-dashboard" class="hidden">
@@ -374,7 +399,19 @@
     
     <div id="overlay" class="fixed inset-0 bg-black/50 z-[90] hidden backdrop-blur-sm" onclick="toggleCart()"></div>
 
+
     <script>
+        // Scroll Logic for Blog
+        function scrollBlog(direction) {
+            const container = document.getElementById('blog-container');
+            const scrollAmount = 400; // Width of card
+            if(direction === 'left') {
+                container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+            }
+        }
+
         // Menu Data with Images
         let menuItems = [
             // Regular Items (Bati Chokha Focus)
@@ -434,6 +471,7 @@
             
             container.innerHTML = items.map(item => `
                 <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group relative flex flex-col border border-gray-100 dark:border-gray-700 hover:-translate-y-2">
+                    
                     <div class="h-56 md:h-72 overflow-hidden relative">
                         <img src="${item.img}" alt="${item.eng}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -441,6 +479,7 @@
                             ₹${item.price}
                         </div>
                     </div>
+
                     <div class="p-4 md:p-5 flex-1 flex flex-col justify-between relative z-10 bg-white dark:bg-gray-800">
                         <div>
                             <h3 class="font-heading text-lg md:text-xl text-brand-maroon dark:text-brand-saffron mb-1 leading-tight">${item.hindi}</h3>
@@ -569,7 +608,6 @@
         }
 
         function loginAdmin() {
-            // Updated Password Check
             const pass = document.getElementById('admin-pass').value;
             if (pass === 'batti@123') { 
                 document.getElementById('admin-login').classList.add('hidden');
