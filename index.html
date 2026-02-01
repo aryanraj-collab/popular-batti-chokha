@@ -29,12 +29,6 @@
                     animation: {
                         'spin-slow': 'spin 10s linear infinite',
                         'fade-in-up': 'fadeInUp 1s ease-out'
-                    },
-                    keyframes: {
-                        fadeInUp: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' }
-                        }
                     }
                 }
             }
@@ -42,7 +36,7 @@
     </script>
 
     <style>
-        /* Custom styles for the Om animation halo */
+        /* Custom styles */
         .om-halo {
             position: absolute;
             top: 50%; left: 50%;
@@ -55,18 +49,13 @@
             z-index: -1;
             animation: spin 15s linear infinite;
         }
-        .dark .om-halo { opacity: 0.4; }
-        
-        /* Archway frame for the photo */
         .photo-frame {
             border: 8px solid #d4af37;
             border-radius: 100px 100px 0 0;
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            background-color: #fff; /* Ensures white bg if image fails */
+            background-color: #fff;
         }
-
-        /* --- Village Home Background for Baba Section --- */
         .village-home-bg {
             background-color: #EFEBE9; 
             background-image: url("https://www.transparenttextures.com/patterns/wall-4-light.png");
@@ -78,8 +67,6 @@
             position: relative;
             z-index: 10;
         }
-
-        /* --- Cultural Highlights (Diversity Section) --- */
         .culture-section {
             background-color: #5D4037; 
             background-image: url("https://www.transparenttextures.com/patterns/dark-wood.png");
@@ -89,49 +76,24 @@
             border-top: 5px solid #FFD700;
             border-bottom: 5px solid #FFD700;
         }
-
-        /* We moved the Grid layout to Tailwind classes in HTML for better mobile control */
         .culture-card {
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid #FFD700;
             border-radius: 15px;
             padding: 20px;
-            /* width is handled by grid now */
             transition: transform 0.3s;
         }
-
         .culture-card:hover {
-            transform: translateY(-5px); /* Reduced movement for mobile smoothness */
+            transform: translateY(-5px);
             background: rgba(255, 255, 255, 0.2);
         }
-
-        .culture-icon {
-            font-size: 40px; /* Slightly smaller for mobile */
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        @media (min-width: 768px) {
-            .culture-icon { font-size: 50px; }
-        }
-
-        .culture-title {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #FFD700;
-            font-family: 'Rozha One', serif;
-        }
-
-        .culture-desc {
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
+        .culture-icon { font-size: 40px; margin-bottom: 10px; display: block; }
+        .culture-title { font-size: 1.2rem; font-weight: bold; margin-bottom: 10px; color: #FFD700; font-family: 'Rozha One', serif; }
         
         /* Custom Scrollbar */
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
-        .custom-scrollbar::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #888; border-radius: 4px; }
     </style>
 </head>
 <body class="font-body bg-brand-cream dark:bg-brand-dark text-gray-800 dark:text-brand-cream transition-colors duration-300">
@@ -139,11 +101,11 @@
     <nav class="sticky top-0 z-50 bg-brand-maroon dark:bg-black shadow-lg text-white py-2 md:py-3 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <a href="#" class="flex items-center gap-2 md:gap-3 group">
-                <div class="h-12 md:h-16 w-12 md:w-16 rounded-full overflow-hidden border-2 border-brand-saffron">
+                <div class="h-12 w-12 md:h-16 md:w-16 rounded-full overflow-hidden border-2 border-brand-saffron shadow-lg bg-black">
                     <video src="http://googleusercontent.com/generated_video_content/12274002092324204740" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
                 <div class="flex flex-col">
-                    <h1 class="font-heading text-2xl md:text-3xl tracking-wider leading-none">पापुलर बाटी चोखा</h1>
+                    <h1 class="font-heading text-xl md:text-3xl tracking-wider leading-none">पापुलर बाटी चोखा</h1>
                     <div class="flex items-center gap-2 mt-0.5 md:mt-1">
                         <span class="font-body text-brand-saffron text-[10px] md:text-sm tracking-widest uppercase">Popular Bati Chokha</span>
                         <span class="bg-brand-gold text-brand-maroon text-[9px] md:text-[10px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">EST. 2002</span>
@@ -171,8 +133,8 @@
             </h2>
             
             <div class="relative w-full max-w-2xl mx-auto mb-6 md:mb-8">
-                <div class="photo-frame h-full w-full bg-white relative z-10">
-                    <img src="image_1.png" alt="Media Coverage" class="w-full h-auto object-cover rounded-t-[100px]">
+                <div class="photo-frame h-64 md:h-96 w-full bg-white relative z-10 overflow-hidden">
+                    <img src="image_1.png" alt="Popular Bati Chokha Stall" class="w-full h-full object-cover">
                 </div>
             </div>
 
@@ -195,17 +157,17 @@
             <div class="culture-card">
                 <span class="culture-icon">🔥</span>
                 <div class="culture-title">कंडे की आंच</div>
-                <div class="culture-desc">Slow-roasted on traditional cow dung cakes for that smoky, authentic flavor.</div>
+                <div class="culture-desc">Slow-roasted on traditional cow dung cakes for that smoky flavor.</div>
             </div>
             <div class="culture-card">
                 <span class="culture-icon">🌿</span>
                 <div class="culture-title">पत्तल और कुल्हड़</div>
-                <div class="culture-desc">Served fresh on eco-friendly leaf plates and clay cups (kulhad).</div>
+                <div class="culture-desc">Served fresh on eco-friendly leaf plates and clay cups.</div>
             </div>
             <div class="culture-card">
                 <span class="culture-icon">🥛</span>
                 <div class="culture-title">शुद्ध देसी घी</div>
-                <div class="culture-desc">Rich, homemade Desi Ghee drenched over hot Batti and Chokha.</div>
+                <div class="culture-desc">Rich, homemade Desi Ghee drenched over hot Batti.</div>
             </div>
             <div class="culture-card">
                 <span class="culture-icon">🪔</span>
@@ -221,7 +183,6 @@
                  <h2 class="font-heading text-3xl md:text-4xl text-brand-maroon dark:text-brand-saffron mb-2">
                     हमारा मेनू (Our Menu)
                 </h2>
-                <p class="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-4">नीचे दिए गए मेनू से चुनें और व्हाट्सएप पर ऑर्डर करें।</p>
                 <div class="w-24 h-1 bg-brand-saffron mx-auto rounded"></div>
             </div>
 
@@ -239,74 +200,6 @@
                 <i class="fa-solid fa-utensils text-brand-saffron"></i> स्पेशल कॉम्बो थाली
             </h3>
              <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="menu-combos"></div>
-
-        </div>
-    </section>
-
-    <section class="py-12 md:py-16 bg-brand-maroon text-brand-cream relative overflow-hidden">
-        <div class="container mx-auto px-4 relative z-10">
-             <h2 class="font-heading text-2xl md:text-3xl text-center mb-8 animate-fade-in-up">
-                बाटी चोखा का इतिहास (History)
-            </h2>
-            <div class="max-w-3xl mx-auto text-base md:text-lg leading-relaxed space-y-6 opacity-90 px-2">
-                <p class="animate-fade-in-up font-bold text-center mb-4 text-brand-gold text-lg md:text-xl border-2 border-brand-gold inline-block px-4 py-2 rounded-lg mx-auto w-full md:w-auto">
-                    <i class="fa-solid fa-clock-rotate-left mr-2"></i> 2002 से आपकी सेवा में
-                </p>
-                <p class="animate-fade-in-up" style="animation-delay: 0.2s">
-                    <i class="fa-solid fa-scroll text-brand-saffron mr-2"></i>
-                    'पापुलर बाटी चोखा' की शुरुआत 2002 में हुई थी। पिछले 2 दशक से हम बनारस के लोगों और यात्रियों को शुद्ध और पारंपरिक स्वाद परोस रहे हैं।
-                </p>
-                <p class="animate-fade-in-up" style="animation-delay: 0.4s">
-                    <i class="fa-solid fa-fire mr-2 text-brand-saffron"></i>
-                    पारंपरिक रूप से इसे गाय के गोबर के उपलों (गोइठा) की धीमी आंच पर सेंका जाता है, जो इसे इसकी विशिष्ट सोंधी खुशबू देता है।
-                </p>
-            </div>
-            <div class="text-center mt-8">
-                <i class="fa-solid fa-wheat-awn text-5xl md:text-6xl text-brand-saffron opacity-30 animate-spin-slow"></i>
-            </div>
-        </div>
-         <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');"></div>
-    </section>
-
-    <section class="py-12 md:py-16 bg-brand-cream dark:bg-brand-dark border-b-4 border-brand-maroon">
-        <div class="container mx-auto px-4">
-            <h2 class="font-heading text-2xl md:text-3xl text-center text-brand-maroon dark:text-brand-saffron mb-8 md:mb-12">
-                स्वाद का राज: बनने की विधि <br> <span class="text-base md:text-lg opacity-80">(The Secret Recipe)</span>
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-t-8 border-brand-saffron hover:-translate-y-1 md:hover:-translate-y-2 transition duration-300">
-                    <div class="w-14 h-14 md:w-16 md:h-16 bg-brand-saffron/20 rounded-full flex items-center justify-center mb-4 mx-auto text-brand-maroon text-2xl">
-                        <i class="fa-solid fa-cookie-bite"></i>
-                    </div>
-                    <h3 class="font-heading text-xl md:text-2xl text-center text-brand-maroon dark:text-brand-saffron mb-4">लिट्टी (Litti)</h3>
-                    <div class="space-y-3 text-center">
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">सत्तू में 15 प्रकार के मसाले और अचार मिलाकर भरावन तैयार किया जाता है। गोइठा की धीमी आंच पर सेंका जाता है।</p>
-                    </div>
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-t-8 border-brand-maroon hover:-translate-y-1 md:hover:-translate-y-2 transition duration-300">
-                    <div class="w-14 h-14 md:w-16 md:h-16 bg-brand-maroon/20 rounded-full flex items-center justify-center mb-4 mx-auto text-brand-maroon text-2xl">
-                        <i class="fa-solid fa-bowl-rice"></i>
-                    </div>
-                    <h3 class="font-heading text-xl md:text-2xl text-center text-brand-maroon dark:text-brand-saffron mb-4">चोखा (Chokha)</h3>
-                    <div class="space-y-3 text-center">
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">ताजे बैंगन, आलू और टमाटर को आग पर भूनकर, सरसों तेल और मसालों के साथ हाथ से मसला जाता है।</p>
-                    </div>
-                </div>
-
-                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border-t-8 border-brand-saffron hover:-translate-y-1 md:hover:-translate-y-2 transition duration-300">
-                    <div class="w-14 h-14 md:w-16 md:h-16 bg-brand-saffron/20 rounded-full flex items-center justify-center mb-4 mx-auto text-brand-maroon text-2xl">
-                        <i class="fa-solid fa-spoon"></i>
-                    </div>
-                    <h3 class="font-heading text-xl md:text-2xl text-center text-brand-maroon dark:text-brand-saffron mb-4">दाल (Dal)</h3>
-                    <div class="space-y-3 text-center">
-                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">अरहर की दाल को धीमी आंच पर पकाकर देसी घी, जीरा और हींग का खुशबूदार 'देसी तड़का' लगाया जाता है।</p>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </section>
 
@@ -325,45 +218,54 @@
                 
                 <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="Screenshot 2026-02-01 114822.jpg" alt="Newspaper Article" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                        <img src="Screenshot 2026-02-01 114822.jpg" alt="Amar Ujala Article" class="w-full h-full object-cover transition duration-500 hover:scale-105">
                         <div class="absolute bottom-0 left-0 bg-brand-maroon text-white text-xs px-3 py-1">Amar Ujala Coverage</div>
                     </div>
                     <div class="p-6">
                         <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">काशी का बाटी चोखा - बिहार से भी बेहतर?</h3>
                         <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                            अमर उजाला की रिपोर्ट के अनुसार, "काशी के पापुलर बाटी चोखा की बात ही निराली है। एक बार इसका जायका जुबान को लगा तो आप इसके दीवाने हो जाएंगे। देशी घी में डूबी सत्तू भरी बाटी और खास मसालों से तैयार चोखा का स्वाद वाकई लाजवाब है।"
+                            "काशी के पापुलर बाटी चोखा की बात ही निराली है। एक बार इसका जायका जुबान को लगा तो आप इसके दीवाने हो जाएंगे।" - अमर उजाला ने हमारी गुणवत्ता और स्वाद को सराहा है।
                         </p>
-                        <p class="text-xs text-brand-dark/50 dark:text-gray-500 italic">Source: Amar Ujala, Varanasi</p>
                     </div>
                 </div>
 
                 <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300">
                     <div class="h-64 overflow-hidden relative">
-                        <img src="Screenshot 2026-02-01 114912.jpg" alt="Sattu Preparation" class="w-full h-full object-cover transition duration-500 hover:scale-105">
-                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white text-xs px-3 py-1">Health & Tradition</div>
+                        <img src="Screenshot 2026-02-01 114912.jpg" alt="Making Process" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white text-xs px-3 py-1">Since 2002</div>
                     </div>
                     <div class="p-6">
-                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">सत्तू: सेहत और स्वाद का संगम</h3>
+                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">17 साल का भरोसा</h3>
                         <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
-                            बाटी के लिए सत्तू हम किसी दुकान से नहीं लेते, बल्कि खुद तैयार करते हैं। यह "गरीबों का बादाम" कहा जाने वाला सुपरफूड प्रोटीन और फाइबर का खजाना है। 17 सालों से हम इसी शुद्धता और परंपरा को कायम रखे हुए हैं।
+                            रोजाना 350-400 ग्राहक हमारे स्वाद के गवाह हैं। पप्पू कुमार और गुड्डू कुमार ने 17 साल पहले 5 रुपये से शुरुआत की थी, और आज भी वही शुद्धता और प्रेम परोस रहे हैं।
                         </p>
-                        <p class="text-xs text-brand-dark/50 dark:text-gray-500 italic">Authored by: Pappu Kumar (Founder)</p>
                     </div>
                 </div>
 
-                <div class="md:col-span-2 bg-brand-maroon rounded-2xl p-8 text-center relative overflow-hidden shadow-2xl mt-4">
-                    <div class="relative z-10 text-brand-cream">
-                        <i class="fa-solid fa-quote-left text-4xl text-brand-saffron opacity-50 mb-4"></i>
-                        <h3 class="font-heading text-2xl md:text-3xl mb-4">"बनारस की गलियों का असली स्वाद"</h3>
-                        <p class="text-base md:text-lg leading-relaxed max-w-3xl mx-auto opacity-90">
-                            कॉलोनी के मोड़ पर पप्पू कुमार का यह बाटी चोखा का ठेला सिर्फ एक दुकान नहीं, बल्कि बनारस की आत्मा का हिस्सा है। बैंक कर्मचारी हों या राहगीर, यहाँ की भीड़ बताती है कि स्वाद में कितना दम है। ओवन के जमाने में, कंडे की आंच पर बनी बाटी का यह सोंधापन ही हमारी पहचान है।
-                        </p>
-                        <div class="mt-6 flex justify-center gap-4">
-                            <span class="px-4 py-1 border border-brand-saffron rounded-full text-xs uppercase tracking-wider">Soul Food</span>
-                            <span class="px-4 py-1 border border-brand-saffron rounded-full text-xs uppercase tracking-wider">Varanasi Special</span>
-                        </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="Screenshot 2026-02-01 114553.png" alt="Cart Logo" class="w-full h-full object-contain p-4 bg-yellow-100 transition duration-500 hover:scale-105">
+                        <div class="absolute bottom-0 left-0 bg-brand-maroon text-white text-xs px-3 py-1">Health & Heritage</div>
                     </div>
-                    <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')]"></div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">सत्तू और बनारस की आत्मा</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
+                            हमारा सत्तू किसी दुकान का नहीं, घर का बना "सुपरफूड" है। यह सिर्फ खाना नहीं, बनारस की गलियों का सुकून है। बैंक कर्मचारियों से लेकर पर्यटकों तक, कॉलोनी का यह मोड़ सबका पसंदीदा अड्डा है।
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-brand-maroon/20 hover:shadow-2xl transition duration-300">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="Screenshot 2026-02-01 114847.jpg" alt="Crowd Eating" class="w-full h-full object-cover transition duration-500 hover:scale-105">
+                        <div class="absolute bottom-0 left-0 bg-brand-saffron text-white text-xs px-3 py-1">Customer Love</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-heading text-xl text-brand-maroon dark:text-brand-saffron mb-3">भीड़ जो गवाही देती है</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4 leading-relaxed">
+                            यूं तो कई दुकानें हैं, लेकिन जो भीड़ हमारे ठेले पर होती है, वो स्वाद की असली पहचान है। लोग यहाँ सिर्फ खाने नहीं, अपनापन महसूस करने आते हैं।
+                        </p>
+                    </div>
                 </div>
 
             </div>
@@ -435,15 +337,17 @@
             </button>
         </div>
     </footer>
-<div class="fixed bottom-6 left-6 z-[90] flex flex-col gap-4">
+
+    <div class="fixed bottom-6 left-6 z-[90] flex flex-col gap-4">
         <a href="tel:+916387271348" class="w-12 h-12 md:w-14 md:h-14 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-blue-700 transition hover:scale-110 border-2 border-white animate-bounce" style="animation-duration: 3s;">
             <i class="fa-solid fa-phone text-xl md:text-2xl"></i>
         </a>
         
-        <a href="https://wa.me/916387271348?text=Namaste!%20I%20want%20to%20order%20Baati%20Chokha." target="_blank" class="w-12 h-12 md:w-14 md:h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#128C7E] transition hover:scale-110 border-2 border-white">
+        <a href="https://wa.me/916387271348?text=Namaste!%20I%20want%20to%20order%20Bati%20Chokha." target="_blank" class="w-12 h-12 md:w-14 md:h-14 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#128C7E] transition hover:scale-110 border-2 border-white">
             <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i>
         </a>
     </div>
+
     <div id="cart-sidebar" class="fixed top-0 right-0 h-full w-full md:w-96 bg-white dark:bg-gray-900 shadow-2xl z-[100] transform translate-x-full transition-transform duration-300 flex flex-col font-body">
         <div class="bg-brand-maroon text-white p-4 flex justify-between items-center shadow-md">
             <h3 class="font-heading text-lg flex items-center gap-2"><i class="fa-solid fa-plate-wheat"></i> आपकी थाली (Your Cart)</h3>
@@ -471,7 +375,7 @@
             <div class="p-6 dark:text-gray-200">
                 <div id="admin-login">
                     <label class="block text-sm font-bold mb-2 text-brand-maroon dark:text-brand-saffron">पासवर्ड दर्ज करें (Enter Password):</label>
-                    <input type="password" id="admin-pass" placeholder="eg. popular@123" class="w-full border-2 dark:border-gray-700 dark:bg-gray-800 p-3 rounded-lg mb-4 focus:border-brand-saffron outline-none transition">
+                    <input type="password" id="admin-pass" placeholder="eg. batti@123" class="w-full border-2 dark:border-gray-700 dark:bg-gray-800 p-3 rounded-lg mb-4 focus:border-brand-saffron outline-none transition">
                     <button onclick="loginAdmin()" class="w-full bg-brand-saffron text-white py-3 rounded-lg font-bold hover:bg-brand-maroon transition shadow-md active:scale-95">लॉगिन (Login)</button>
                 </div>
                 <div id="admin-dashboard" class="hidden">
@@ -485,7 +389,6 @@
     </div>
     
     <div id="overlay" class="fixed inset-0 bg-black/50 z-[90] hidden backdrop-blur-sm" onclick="toggleCart()"></div>
-
 
     <script>
         // Menu Data with Images
@@ -547,7 +450,6 @@
             
             container.innerHTML = items.map(item => `
                 <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group relative flex flex-col border border-gray-100 dark:border-gray-700 hover:-translate-y-2">
-                    
                     <div class="h-56 md:h-72 overflow-hidden relative">
                         <img src="${item.img}" alt="${item.eng}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -555,7 +457,6 @@
                             ₹${item.price}
                         </div>
                     </div>
-
                     <div class="p-4 md:p-5 flex-1 flex flex-col justify-between relative z-10 bg-white dark:bg-gray-800">
                         <div>
                             <h3 class="font-heading text-lg md:text-xl text-brand-maroon dark:text-brand-saffron mb-1 leading-tight">${item.hindi}</h3>
@@ -684,9 +585,8 @@
         }
 
         function loginAdmin() {
-            // Updated Password Check
             const pass = document.getElementById('admin-pass').value;
-            if (pass === 'batti@123') { // CHANGED PASSWORD HERE
+            if (pass === 'batti@123') { 
                 document.getElementById('admin-login').classList.add('hidden');
                 document.getElementById('admin-dashboard').classList.remove('hidden');
                 renderAdminInputs();
@@ -718,9 +618,7 @@
                     newPricesObj[item.id] = newPrice;
                 }
             });
-            
             localStorage.setItem('popularMenuPrices', JSON.stringify(newPricesObj));
-            
             init();
             updateCartUI();
             alert("मूल्य अपडेट हो गए! (Prices Updated Successfully)");
