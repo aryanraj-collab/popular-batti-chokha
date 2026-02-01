@@ -52,22 +52,17 @@
             z-index: -1; /* Behind the photo frame */
             animation: spin-slow-side 20s linear infinite;
         }
-        .om-halo-left {
-            left: -25%;
-        }
-        .om-halo-right {
-            right: -25%;
-        }
+        .om-halo-left { left: -25%; }
+        .om-halo-right { right: -25%; }
         .dark .om-halo { opacity: 0.5; }
 
-        /* --- UPDATED: Baba Ji Frame (Stronger Arch) --- */
+        /* --- Baba Ji Frame --- */
         .baba-frame-border {
-            border: 8px solid #d4af37; /* Golden border */
-            /* Changed radius back to 100px for the distinct arch look */
+            border: 8px solid #d4af37; 
             border-radius: 100px 100px 0 0; 
-            overflow: hidden; /* Clip the image */
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Slightly stronger shadow */
-            background-color: #fff;
+            overflow: hidden; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            background-color: #fff; /* White background to show full image clearly */
         }
 
         /* --- Other Styles --- */
@@ -82,22 +77,21 @@
             from { transform: translateY(-50%) rotate(0deg); }
             to { transform: translateY(-50%) rotate(360deg); }
         }
-        @keyframes spin-slow { from { transform: translate(-50%, -50%) rotate(0deg); } to { transform: translate(-50%, -50%) rotate(360deg); } }
     </style>
 </head>
 <body class="font-body bg-brand-cream dark:bg-brand-dark text-gray-800 dark:text-brand-cream transition-colors duration-300">
 
     <nav class="sticky top-0 z-50 bg-brand-maroon dark:bg-black shadow-lg text-white py-2 md:py-3 transition-all duration-300">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-2 md:gap-3 group">
-                <div class="h-12 w-12 md:h-16 md:w-16 rounded-full overflow-hidden border-2 border-brand-saffron shadow-lg bg-black">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="h-16 w-16 md:h-24 md:w-24 rounded-full overflow-hidden border-4 border-brand-saffron shadow-lg bg-black flex-shrink-0">
                     <video src="http://googleusercontent.com/generated_video_content/12274002092324204740" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
                 </div>
                 <div class="flex flex-col">
-                    <h1 class="font-heading text-xl md:text-3xl tracking-wider leading-none">पापुलर बाटी चोखा</h1>
-                    <div class="flex items-center gap-2 mt-0.5 md:mt-1">
-                        <span class="font-body text-brand-saffron text-[10px] md:text-sm tracking-widest uppercase">Popular Bati Chokha</span>
-                        <span class="bg-brand-gold text-brand-maroon text-[9px] md:text-[10px] font-bold px-1.5 py-0.5 rounded-full whitespace-nowrap">EST. 2002</span>
+                    <h1 class="font-heading text-2xl md:text-4xl tracking-wider leading-none text-brand-gold">पापुलर बाटी चोखा</h1>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="font-body text-brand-saffron text-xs md:text-base tracking-widest uppercase font-bold">Popular Bati Chokha</span>
+                        <span class="bg-brand-gold text-brand-maroon text-[10px] md:text-xs font-bold px-2 py-0.5 rounded-full whitespace-nowrap">EST. 2002</span>
                     </div>
                 </div>
             </a>
@@ -114,28 +108,28 @@
         </div>
     </nav>
 
-    <header class="relative py-10 md:py-16 overflow-hidden">
+    <header class="relative py-12 md:py-20 overflow-hidden">
         <div class="container mx-auto px-4 text-center relative z-10 village-home-bg mx-4 md:mx-auto max-w-[95%] md:max-w-container">
-            <h2 class="font-heading text-2xl md:text-4xl text-brand-maroon mb-6 md:mb-8 animate-fade-in-up leading-snug">
+            <h2 class="font-heading text-3xl md:text-5xl text-brand-maroon mb-8 md:mb-10 animate-fade-in-up leading-snug">
                 "अतिथि देवो भव:।<br class="md:hidden"> भोजन ही प्रसाद है।"
             </h2>
             
-            <div class="relative w-full max-w-xl mx-auto mb-6 md:mb-8 animate-fade-in-up">
+            <div class="relative w-full max-w-xl mx-auto mb-8 md:mb-10 animate-fade-in-up">
                 <div class="relative flex justify-center items-center">
                     <div class="om-halo om-halo-left"></div>
 
-                    <div class="baba-frame-border h-72 md:h-96 w-full bg-white relative z-10">
-                        <img src="image_1.jpg" alt="Baba Ji" class="w-full h-full object-cover">
+                    <div class="baba-frame-border h-80 md:h-[500px] w-full bg-white relative z-10 flex items-end justify-center">
+                        <img src="image_1.jpg" alt="Baba Ji" class="w-full h-full object-contain">
                     </div>
 
                     <div class="om-halo om-halo-right"></div>
                 </div>
             </div>
 
-            <p class="text-base md:text-xl font-heading text-gray-700 max-w-2xl mx-auto px-2">
+            <p class="text-lg md:text-2xl font-heading text-gray-700 max-w-3xl mx-auto px-2">
                 शुद्ध देसी घी से निर्मित, बनारस का पारंपरिक स्वाद।
                 <br>
-                <span class="text-sm md:text-lg opacity-80">(Pure Desi Ghee Preparation, Traditional Taste of Banaras)</span>
+                <span class="text-base md:text-lg opacity-80">(Pure Desi Ghee Preparation, Traditional Taste of Banaras)</span>
             </p>
         </div>
         <div class="absolute inset-0 opacity-10 dark:opacity-5 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/gplay.png');"></div>
