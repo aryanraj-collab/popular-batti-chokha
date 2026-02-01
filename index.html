@@ -40,21 +40,23 @@
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
-        /* --- Om Animation (Left & Right) --- */
+        /* --- Om Animation (Left & Right) - UPDATED FOR VISIBILITY --- */
         .om-halo {
             position: absolute;
             top: 50%;
-            width: 70%;
-            height: 70%;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%23ff9933' d='M250 0C112.1 0 0 112.1 0 250s112.1 250 250 250 250-112.1 250-250S387.9 0 250 0zm0 450C139.5 450 50 360.5 50 250S139.5 50 250 50s200 89.5 200 200-89.5 200-200 200z' opacity='0.1'/%3E%3Ctext x='50%25' y='50%25' font-size='200' text-anchor='middle' dominant-baseline='middle' fill='%23ff9933' opacity='0.3'%3Eॐ%3C/text%3E%3C/svg%3E");
+            width: 90%; /* Increased size */
+            height: 90%; /* Increased size */
+            /* Increased opacity inside the SVG data for better visibility */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Cpath fill='%23ff9933' d='M250 0C112.1 0 0 112.1 0 250s112.1 250 250 250 250-112.1 250-250S387.9 0 250 0zm0 450C139.5 450 50 360.5 50 250S139.5 50 250 50s200 89.5 200 200-89.5 200-200 200z' opacity='0.3'/%3E%3Ctext x='50%25' y='50%25' font-size='200' text-anchor='middle' dominant-baseline='middle' fill='%23ff9933' opacity='0.5'%3Eॐ%3C/text%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: center;
-            z-index: -1; /* Behind the photo frame */
+            z-index: -1; 
             animation: spin-slow-side 20s linear infinite;
+            opacity: 0.7; /* Increased overall opacity */
         }
-        .om-halo-left { left: -25%; }
-        .om-halo-right { right: -25%; }
-        .dark .om-halo { opacity: 0.5; }
+        .om-halo-left { left: -35%; } /* Adjusted position for larger size */
+        .om-halo-right { right: -35%; } /* Adjusted position for larger size */
+        .dark .om-halo { opacity: 0.9; } /* More visible in dark mode */
 
         /* --- Baba Ji Frame --- */
         .baba-frame-border {
@@ -62,7 +64,7 @@
             border-radius: 100px 100px 0 0; 
             overflow: hidden; 
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            background-color: #fff; /* White background to show full image clearly */
+            /* Removed white background so it blends better if there's tiny space */
         }
 
         /* --- Other Styles --- */
@@ -114,11 +116,11 @@
                 "अतिथि देवो भव:।<br class="md:hidden"> भोजन ही प्रसाद है।"
             </h2>
             
-            <div class="relative w-full max-w-xl mx-auto mb-8 md:mb-10 animate-fade-in-up">
+            <div class="relative w-full max-w-lg mx-auto mb-8 md:mb-10 animate-fade-in-up">
                 <div class="relative flex justify-center items-center">
                     <div class="om-halo om-halo-left"></div>
 
-                    <div class="baba-frame-border h-80 md:h-[500px] w-full bg-white relative z-10 flex items-end justify-center">
+                    <div class="baba-frame-border h-72 md:h-96 w-full bg-brand-cream/20 relative z-10 flex items-end justify-center">
                         <img src="image_1.jpg" alt="Baba Ji" class="w-full h-full object-contain">
                     </div>
 
